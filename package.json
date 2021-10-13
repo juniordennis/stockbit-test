@@ -1,0 +1,24 @@
+{
+  "name": "stockbit-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "number2.js",
+  "scripts": {
+    "start": "node number2.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juniordennis/stockbit-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juniordennis/stockbit-test/issues"
+  },
+  "homepage": "https://github.com/juniordennis/stockbit-test#readme",
+  "dependencies": {
+    "axios": "^0.23.0",
+    "express": "^4.17.1"
+  }
+}
