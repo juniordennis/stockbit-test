@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Log</title>
+</head>
+<body>
+	Latest 20 logs
+	{{#if rows}}
+		<ul>
+			{{#each rows}}
+				<li>{{key}} - {{url}}</li>
+			{{/each}}
+		</ul>
+	{{else}}
+		<p>No logs</p>
+	{{/if}}
+	{{#if  error}}
+		<p>{{error}}</p>
+	{{/if}}
+</body>
+</html>
