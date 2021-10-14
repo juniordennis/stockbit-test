@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Detail</title>
+	<style type="text/css">
+		.container {
+			display: flex;
+		}
+
+		img.poster {
+			width: 300px;
+		}
+
+		dl {
+			line-height: 1.6;
+			margin-left: 20px;
+		}
+
+		dt {
+			float: left;
+			width: 25%;
+			font-weight: bold;
+		}
+
+		dd {
+			float: left;
+			width: 75%;
+			margin-inline-start: 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		{{#ifCond Poster '!==' 'N/A'}}
+			<img src="{{Poster}}" class="poster">
+		{{else}}
+			<img src="images/default-movie.jpg" class="poster">
+		{{/ifCond}}
+
+		<dl>
+			<dt>Title</dt><dd>{{Title}}</dd>
+			<dt>Year</dt><dd>{{Year}}</dd>
+			<dt>Rated</dt><dd>{{Rated}}</dd>
+			<dt>Released</dt><dd>{{Released}}</dd>
+			<dt>Runtime</dt><dd>{{Runtime}}</dd>
+			<dt>Genre</dt><dd>{{Genre}}</dd>
+			<dt>Director</dt><dd>{{Director}}</dd>
+			<dt>Writer</dt><dd>{{Writer}}</dd>
+			<dt>Actors</dt><dd>{{Actors}}</dd>
+			<dt>Plot</dt><dd>{{Plot}}</dd>
+			<dt>Language</dt><dd>{{Language}}</dd>
+			<dt>Country</dt><dd>{{Country}}</dd>
+			<dt>IMDB Rating</dt><dd>{{imdbRating}}</dd>
+		</dl>
+	</div>
+</body>
+</html>

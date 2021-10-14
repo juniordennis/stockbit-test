@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Search</title>
+	<style type="text/css">
+		ul.no-bullet {
+			list-style-type: none;
+		}
+
+		li.poster-container {
+			display: inline-block;
+			text-align: center;
+			vertical-align: top;
+			width: 100px;
+			margin-left: 10px;
+			margin-right: 10px;
+		}
+
+		img.poster {
+			display: block;
+			margin: 0 auto;
+			/*height: 100px;*/
+			width: 100%;
+		}
+
+		.break-word {
+			word-wrap: break-word;
+		}
+	</style>
+</head>
+<body>
+	<h1>Search Movie</h1>
+	<form action="/search" method="get">
+		<input type="text" name="s">
+		<button type="submit">Search</button>
+	</form>
+	<div>
+		{{#ifCond Response '===' 'True'}}
+			<ul class="no-bullet">
+				{{#each Search}}
+					<li class="poster-container">
+						<a href="/detail?i={{imdbID}}">
+							{{#ifCond Poster '!==' 'N/A'}}
+								<img src="{{Poster}}" class="poster">
+							{{else}}
+								<img src="images/default-movie.jpg" class="poster">
+							{{/ifCond}}
+							<p class="break-word">{{Title}}</p>
+						</a>
+					</li>
+				{{/each}}
+			</ul>
+			<div>
+				<button onclick="prev()">< Prev</button>
+				<button onclick="next()">Next ></button>
+			</div>
+		{{/ifCond}}
+	</div>
+	<script type="text/javascript">
+		function next() {
+			const urlParams = new URLSearchParams(window.location.search);
+			if (!urlParams.has('page')) {
+				urlParams.set('page', 2);
+			} else {
+				urlParams.set('page', parseInt(urlParams.get('page')) + 1);
+			}
+			window.location = window.location.pathname + '?' + urlParams.toString();
+		}
+
+		function prev() {
+			const urlParams = new URLSearchParams(window.location.search);
+			if (!urlParams.has('page')) return;
+			
+			const page = parseInt(urlParams.get('page'));
+			if (page === 1) return;
+
+			urlParams.set('page', page - 1);
+			window.location = window.location.pathname + '?' + urlParams.toString();
+		}
+	</script>
+</body>
+</html>
